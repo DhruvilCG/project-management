@@ -1,12 +1,12 @@
 import User from "../models/usermodel.js";
 import validator from "validator" ;
-import bcrypt from "bcrypt" ;
+import bcrypt from "bcryptjs" ;
 import jwt from 'jsonwebtoken' ;
 
 const JWT_SECRET = process.env.JWT_SECRET ;
 const TOKEN_EXPIRES = process.env.TOKEN_EXPIRES ;
 
-const createToken = (userId) => jwt.sign({id:userId1} , JWT_SECRET , {expiresIn: TOKEN_EXPIRES}) ;
+const createToken = (userId) => jwt.sign({id:userId} , JWT_SECRET , {expiresIn: TOKEN_EXPIRES}) ;
 
 // REGISTER FUNCTION 
 export async function registerUser (req , res) {
@@ -48,7 +48,7 @@ export async function  loginUser(req , res) {
     }
 
     try {
-        const user = User.findOne({email}) ;
+        const user = await User.findOne({email}) ;
 
         if (!user) {
             return res.status(401).json({success: false , message: "User not exist."}) ;
@@ -71,7 +71,7 @@ export async function  loginUser(req , res) {
 // GET CURRENT USER 
 export async function getCurrentUser(req , res) {
     try {
-        const User = await User.findById(req.user.id).select("name email") ;
+        const user = await User.findById(req.user.id).select("name email") ;
         if (!user) {
             return res.status(400).json({success: false , message: "User not found"}) ;
         }
@@ -119,7 +119,7 @@ export async function updatePassword(req , res) {
     }
 
     try {
-        const user = await User.findOne(req.user.id).select("password") ;
+        const user = await User.findById(req.user.id).select("password") ;
         if (!user) {
             return res.status(404).json({success: false , message: "User not found"}) ;
         }
