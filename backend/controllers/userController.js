@@ -75,7 +75,7 @@ export async function getCurrentUser(req , res) {
         if (!user) {
             return res.status(400).json({success: false , message: "User not found"}) ;
         }
-        return res.status(200).json({success: true , message: user}) ;
+        return res.status(200).json({success: true , user}) ;
     }
     catch (err) {
         console.log(err) ;
@@ -83,4 +83,29 @@ export async function getCurrentUser(req , res) {
     }
 }
 
+// UPDATE USER PROFILE 
+export async function  updateProfile(req , res) {
+    const {name , email} = req.body ;
 
+    if (!name || !email || !validator.isEmail(email)) {
+        return res.status(400).json({success: false , message: "Valid name and email are required"}) ;
+    }
+
+    try {
+        const exists = await User.findOne({email , _id: {$ne: req.user.id}}) ;
+
+        if (exists) {
+            return res.status(409).json({success: false , message: "Email already in use by another account."}) ;
+        }
+        const user = await User.findByIdAndUpdate(
+            req.user.id ,
+            {name , email} ,
+            {new: true , runValidators: true , select: "name email"}
+        ) ;
+        res.status(201).json({success: true , user})
+    }
+    catch(err) {
+        console.log(err) ;
+        return res.status(500).json({success: false , message: "Server Error"}) ;
+    }
+}
