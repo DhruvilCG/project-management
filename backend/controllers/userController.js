@@ -67,3 +67,20 @@ export async function  loginUser(req , res) {
         return res.status(500).json({success: false , message: "Server error"}) ;
     }
 }
+
+// GET CURRENT USER 
+export async function getCurrentUser(req , res) {
+    try {
+        const User = await User.findById(req.user.id).select("name email") ;
+        if (!user) {
+            return res.status(400).json({success: false , message: "User not found"}) ;
+        }
+        return res.status(200).json({success: true , message: user}) ;
+    }
+    catch (err) {
+        console.log(err) ;
+        return res.status(500).json({success: false , message: "Server Error"}) ;
+    }
+}
+
+
