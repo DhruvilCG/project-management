@@ -110,19 +110,19 @@ export const SIDEBAR_CLASSES = {
 
 export const LINK_CLASSES = {
     base: "group flex items-center px-4 py-3 rounded-xl transition-all duration-300",
-    active: "bg-gradient-to-r from-purple-50 to-fuchsia-50 border-l-4 border-purple-500 text-purple-700 font-medium shadow-sm",
-    inactive: "hover:bg-purple-50/50 text-gray-600 hover:text-purple-700",
-    icon: "transition-transform duration-300 group-hover:scale-110 text-purple-500",
+    active: "bg-gradient-to-r from-amber-50 to-amber-50 border-l-4 border-amber-500 text-amber-700 font-medium shadow-sm",
+    inactive: "hover:bg-amber-50/50 text-gray-600 hover:text-amber-700",
+    icon: "transition-transform duration-300 group-hover:scale-110 text-amber-500",
     text: "text-sm font-medium ml-2",
 }
 
 export const PRODUCTIVITY_CARD = {
-    container: "bg-purple-50/50 rounded-xl p-3 border border-purple-100",
+    container: "bg-amber-50/50 rounded-xl p-3 border border-amber-100",
     header: "flex items-center justify-between mb-2",
-    label: "text-xs font-semibold text-purple-700",
-    badge: "text-xs bg-purple-200 text-purple-700 px-2 py-0.5 rounded-full",
-    barBg: "w-full h-2 bg-purple-200 rounded-full overflow-hidden",
-    barFg: "h-full bg-gradient-to-r from-fuchsia-500 to-purple-600 animate-pulse",
+    label: "text-xs font-semibold text-amber-700",
+    badge: "text-xs bg-amber-200 text-amber-700 px-2 py-0.5 rounded-full",
+    barBg: "w-full h-2 bg-amber-200 rounded-full overflow-hidden",
+    barFg: "h-full bg-gradient-to-r from-fuchsia-500 to-amber-600 animate-pulse",
 }
 
 export const TIP_CARD = {
