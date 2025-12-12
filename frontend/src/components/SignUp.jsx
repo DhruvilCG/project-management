@@ -2,14 +2,10 @@ import axios from 'axios';
 import { Lock, Mail, User, UserPlus } from 'lucide-react'
 import React from 'react'
 import { useState } from 'react';
+import { FIELDS } from '../assets/dummy';
 
 const API_URL = 'https://project-management-backend-1-qk79.onrender.com';
 const INITIAL_FORM = {name: "" , email: "" , password: ""}
-const FIELDS = [
-    {name: "name" , type: "text" , placeholder: "Full Name" , icon: User} ,
-    {name: "email" , type: "email" , placeholder: "Email" , icon: Mail} ,
-    {name: "password" , type: "password" , placeholder: "Password" , icon: Lock}  
-]
 
 const SignUp = ({onSwitchMode}) => {
 
