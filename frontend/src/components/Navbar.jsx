@@ -2,7 +2,7 @@ import React , { useRef , useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, LogOut, Settings, Zap } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({user={} , onLogout}) => {
 
   const navigate = useNavigate() ;
   const menuref = useRef(null) ;
