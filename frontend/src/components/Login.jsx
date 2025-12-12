@@ -1,22 +1,12 @@
 import axios from "axios";
-import { Eye, EyeOff, Icon, LogIn } from "lucide-react";
+import { Eye, EyeOff, Lock, LogIn, Mail } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 const INITIAL_FORM = { email: "", password: "" };
-const fields = [
-  { name: "email", type: "email", placeholder: "Email", icon: Mail },
-  {
-    name: "password",
-    type: showPassword ? "text" : "password",
-    placeholder: "Password",
-    icon: Lock,
-    isPassword: true,
-  },
-];
 
-const Login = ({onSubmit , onSwitchMode}) => {
+const Login = ({ onSubmit, onSwitchMode }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(INITIAL_FORM);
@@ -25,62 +15,82 @@ const Login = ({onSubmit , onSwitchMode}) => {
   const navigate = useNavigate();
   const url = "https://project-management-backend-1-qk79.onrender.com";
 
-  useEffect(()=>{
-    const token = localStorage.getItem("token") ;
-    const userId = localStorage.getItem("userId") ;
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
     if (token) {
       (async () => {
         try {
-          const {data} = await axios.get(`${url}/api/user/me` , {
-            headers: {Authorization: `Bearer ${token}`} ,
-          })
+          const { data } = await axios.get(`${url}/api/user/me`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
           if (data.success) {
-            onSubmit?.({token, userId , ...data.user})
-            toast.success("Session restored. Redirecting...")
-            navigate('/')
-          }
-          else {
-            localStorage.clear()
+            onSubmit?.({ token, userId, ...data.user });
+            toast.success("Session restored. Redirecting...");
+            navigate("/");
+          } else {
+            localStorage.clear();
           }
         } catch {
-          localStorage.clear()
+          localStorage.clear();
         }
-      })
+      })();
     }
-  } , [navigate , onSubmit])
+  }, [navigate, onSubmit]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault() ;
+    e.preventDefault();
     if (!rememberMe) {
-      toast.error('You must enable "Remember Me" to login.') ;
-      return ;
+      toast.error('You must enable "Remember Me" to login.');
+      return;
     }
-    setLoading(true) ;
+    setLoading(true);
 
     try {
-      const {data} = await axios.post(`${url}/api/user/login` , formData) ;
+      const { data } = await axios.post(`${url}/api/user/login`, formData);
       if (!data.token) {
-        throw new Error(data.message || "Login failed") ;
+        throw new Error(data.message || "Login failed");
       }
 
-      localStorage.setItem("token" , data.token) ;
-      localStorage.setItem("userId" , data.user.id) ;
-      setFormData(INITIAL_FORM)
-      onSubmit?.({token: data.token , userId: data.user.id , ...data.user})
-      toast.success("Login successful! Redirecting...") ;
-      setTimeout(() => navigate('/') , 1000)
-    } catch(err) {
-      const msg = err.response?.data?.message || err.message ;
-      toast.error(msg) ;
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.user.id);
+      setFormData(INITIAL_FORM);
+      onSubmit?.({ token: data.token, userId: data.user.id, ...data.user });
+      toast.success("Login successful! Redirecting...");
+      setTimeout(() => navigate("/"), 1000);
+    } catch (err) {
+      let msg =
+        err.response?.data?.message ||
+        err.response?.data?.error ||
+        err.message ||
+        "Something went wrong!";
+
+      // Convert objects → readable text
+      if (typeof msg === "object") {
+        msg = Object.values(msg).join(" , ");
+      }
+
+      toast.error(msg);
     } finally {
-      setLoading(false) ;
+      setLoading(false);
     }
-  }
+  };
 
   const handleSwitchMode = () => {
-    toast.dismiss() ;
-    onSwitchMode?.()
-  }
+    toast.dismiss();
+    onSwitchMode?.();
+  };
+
+  const fields = [
+    { name: "email", type: "email", placeholder: "Email", icon: Mail },
+    {
+      name: "password",
+      type: showPassword ? "text" : "password",
+      placeholder: "Password",
+      icon: Lock,
+      isPassword: true,
+    },
+  ];
 
   return (
     <div className="max-w-md bg-white w-full shadow-lg border border-amber-100 rounded-xl p-8">
@@ -98,38 +108,41 @@ const Login = ({onSubmit , onSwitchMode}) => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {fields.map(({ name, type, placeholder, icon: icon, isPassword }) => (
-          <div
-            key={name}
-            className="flex items-center border border-amber-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-amber-500"
-          >
-            <Icon className="text-amber-500 w-5 h-5" />
-            <input
-              type={type}
-              placeholder={placeholder}
-              value={formData[name]}
-              onChange={(e) =>
-                setFormData({ ...formData, [name]: e.target.value })
-              }
-              className="w-full focus:outline-none text-sm text-gray-700 "
-              required
-            />
+        {fields.map(
+          ({ name, type, placeholder, icon: IconComponent, isPassword }) => (
+            <div
+              key={name}
+              className="flex items-center border border-amber-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-amber-500"
+            >
+              <IconComponent className="text-amber-500 w-5 h-5 mr-2" />
 
-            {isPassword && (
-              <button
-                type="button"
-                onClick={() => setShowPassword((prev) => !prev)}
-                className="ml-2 text-gray-500 hover:text-amber-500 transition-colors"
-              >
-                {showPassword ? (
-                  <EyeOff className="w-5 h-5" />
-                ) : (
-                  <Eye className="w-5 h-5" />
-                )}
-              </button>
-            )}
-          </div>
-        ))}
+              <input
+                type={type}
+                placeholder={placeholder}
+                value={formData[name]}
+                onChange={(e) =>
+                  setFormData({ ...formData, [name]: e.target.value })
+                }
+                className="w-full focus:outline-none text-sm text-gray-700"
+                required
+              />
+
+              {isPassword && (
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="ml-2 text-gray-500 hover:text-amber-500 transition-colors"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
+                </button>
+              )}
+            </div>
+          )
+        )}
 
         <div className="flex items-center">
           <input
@@ -165,10 +178,14 @@ const Login = ({onSubmit , onSwitchMode}) => {
       </form>
 
       <p className="text-center text-sm text-gray-600 mt-6">
-          Don't have an account ?{' '} 
-          <button type="button" className="text-amber-600 hover:text-amber-700 hover:underline font-medium transition-colors" onClick={handleSwitchMode}>
-            Sign Up
-          </button>
+        Don't have an account ?{" "}
+        <button
+          type="button"
+          className="text-amber-600 hover:text-amber-700 hover:underline font-medium transition-colors"
+          onClick={handleSwitchMode}
+        >
+          Sign Up
+        </button>
       </p>
     </div>
   );
