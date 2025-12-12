@@ -6,7 +6,7 @@ import { useCallback } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useMemo } from "react";
-import { Circle, Clock, TreadingUp, Zap } from "lucide-react";
+import { Circle, Clock, TrendingUp, Zap } from "lucide-react";
 
 const Layout = ({ onLogout, user }) => {
   const [tasks, setTasks] = useState([]);
@@ -131,7 +131,7 @@ const Layout = ({ onLogout, user }) => {
           <div className="xl:col-span-1 space-y-4 sm:space-y-6">
             <div className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-amber-100">
               <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-gray-800 flex items-center gap-2">
-                <TreadingUp className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
                 Task Statistics
               </h3>
 
