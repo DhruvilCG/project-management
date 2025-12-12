@@ -60,7 +60,7 @@ const SignUp = ({onSwitchMode}) => {
                 </div>
             ))}
 
-            <button type='submit' className='' disabled={loading}>
+            <button type='submit' className='w-full flex items-center justify-center gap-2 bg-amber-500 text-white font-medium py-2.5 rounded-lg transition-all hover:bg-amber-600 disabled:opacity-60 disabled:cursor-not-allowed shadow-md' disabled={loading}>
                 {loading ? "Signing Up..." : <><UserPlus className='w-4 h-4' />Sign Up</>}
             </button>
         </form>
