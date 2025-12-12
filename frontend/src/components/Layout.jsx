@@ -76,13 +76,13 @@ const Layout = ({ onLogout, user }) => {
 
   // STATISTIC CARD
   const StatCard = ({ title, value, icon }) => (
-    <div className="p-2 sm:p-3 rounded-xl bg-white shadow-sm border border-t-amber-100 hover:shadow-md transition-all duration-300 hover:border-amber-100 group">
+    <div className="p-2 sm:p-3 rounded-xl bg-white shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 hover:border-amber-200 group">
       <div className="flex items-center gap-2">
-        <div className="p-1.5 rounded-lg  bg-amber-700 group-hover:shadow-amber-500">
+        <div className="p-1.5 rounded-lg  bg-amber-100 group-hover:shadow-amber-500">
           {icon}
         </div>
         <div className="min-w-0">
-          <p className="text-lg sm:text-xl font-bold bg-amber-500 text-transparent">
+          <p className="text-lg sm:text-xl font-bold text-amber-500">
             {value}
           </p>
           <p className="text-xs text-gray-500 font-medium">{title}</p>
@@ -171,7 +171,7 @@ const Layout = ({ onLogout, user }) => {
               <div className="space-y-2 sm:space-y-3">
                 <div className="flex items-center justify-between text-gray-700">
                   <span className="text-xs sm:text-sm font-medium flex items-center gap-1.5">
-                    <Circle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-500 fill-amber-500" />
+                    <Circle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-500 fill-amber-500 " />
                     Task Progress
                   </span>
                   <span className="text-xs bg-amber-100 text-amber-700 px-1.5 py-0.5 sm:px-2 rounded-full">
@@ -182,8 +182,8 @@ const Layout = ({ onLogout, user }) => {
                 <div className="relative pt-1">
                   <div className="flex gap-1.5 items-center">
                     <div className="flex-1 h-2 sm:h-3 bg-amber-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-amber-500 transition-all duration-500"
-                      style={{width: `${stats.completionPercentage} %`}} />
+                      <div className="h-full bg-gradient-to-r from-amber-400 to-amber-600 rounded-full transition-all duration-700"
+                      style={{width: `${stats.completionPercentage}%`}} />
                     </div>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ const Layout = ({ onLogout, user }) => {
                         </div>
                     })}
 
-                    {task.length === 0 && (
+                    {tasks.length === 0 && (
                         <div className="text-center py-4 sm:py-6 px-2">
                             <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto sm:mb-4 rounded-full bg-amber-100 flex items-center justify-center">
                                 <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500" />
