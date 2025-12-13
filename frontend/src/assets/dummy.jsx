@@ -170,17 +170,17 @@ export const getPriorityBadgeColor = (priority) => {
 export const WRAPPER = "p-4 md:p-6 min-h-screen overflow-hidden"
 export const HEADER = "flex flex-col md:flex-row justify-between items-start md:items-center mb-4 md:mb-6 gap-3"
 export const ADD_BUTTON =
-    "flex items-center gap-2 bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 w-full md:w-auto justify-center text-sm md:text-base"
+    "flex items-center gap-2 bg-amber-600 text-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 w-full md:w-auto justify-center text-sm md:text-base"
 export const STATS_GRID = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6"
 export const STAT_CARD =
-    "p-3 md:p-4 rounded-xl bg-white shadow-sm border border-purple-100 hover:shadow-md transition-all duration-300 min-w-0"
+    "p-3 md:p-4 rounded-xl bg-white shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 min-w-0"
 export const ICON_WRAPPER = "p-1.5 md:p-2 rounded-lg"
 export const VALUE_CLASS = "text-lg md:text-2xl font-bold truncate"
 export const LABEL_CLASS = "text-xs text-gray-500 truncate"
 
 // Stats definitions
 export const STATS = [
-    { key: "total", label: "Total Tasks", icon: HomeIcon, iconColor: "bg-purple-100 text-purple-600", valueKey: "total", gradient: true },
+    { key: "total", label: "Total Tasks", icon: HomeIcon, iconColor: "bg-amber-100 text-amber-600", valueKey: "total", gradient: true },
     { key: "lowPriority", label: "Low Priority", icon: Flame, iconColor: "bg-green-100 text-green-600", borderColor: "border-green-100", valueKey: "lowPriority", textColor: "text-green-600" },
     { key: "mediumPriority", label: "Medium Priority", icon: Flame, iconColor: "bg-orange-100 text-orange-600", borderColor: "border-orange-100", valueKey: "mediumPriority", textColor: "text-orange-600" },
     { key: "highPriority", label: "High Priority", icon: Flame, iconColor: "bg-red-100 text-red-600", borderColor: "border-red-100", valueKey: "highPriority", textColor: "text-red-600" },
