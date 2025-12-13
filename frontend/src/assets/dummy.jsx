@@ -199,18 +199,18 @@ export const FILTER_LABELS = {
 
 // Empty state
 export const EMPTY_STATE = {
-    wrapper: "p-6 bg-white rounded-xl shadow-sm border border-purple-100 text-center",
-    iconWrapper: "w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4",
-    btn: "px-4 py-2 bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white rounded-lg text-sm font-medium",
+    wrapper: "p-6 bg-white rounded-xl shadow-sm border border-amber-100 text-center",
+    iconWrapper: "w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4",
+    btn: "px-4 py-2 bg-amber-600 text-white rounded-lg text-sm font-medium",
 }
 
 // Filter UI Constants
 export const FILTER_WRAPPER = "flex items-center justify-between bg-white p-4 rounded-xl shadow-sm"
-export const SELECT_CLASSES = "px-3 py-2 border border-purple-100 rounded-lg focus:ring-2 focus:ring-purple-500 md:hidden text-sm"
-export const TABS_WRAPPER = "hidden md:flex space-x-1 bg-purple-50 p-1 rounded-lg"
+export const SELECT_CLASSES = "px-3 py-2 border border-amber-100 rounded-lg focus:ring-2 focus:ring-amber-500 md:hidden text-sm"
+export const TABS_WRAPPER = "hidden md:flex space-x-1 bg-amber-50 p-1 rounded-lg"
 export const TAB_BASE = "px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
-export const TAB_ACTIVE = "bg-white text-purple-700 shadow-sm border"
-export const TAB_INACTIVE = "text-gray-600 hover:bg-purple-100/50"
+export const TAB_ACTIVE = "bg-white text-amber-700 shadow-sm border"
+export const TAB_INACTIVE = "text-gray-600 hover:bg-amber-100/50"
 
 
 // COMPLETE TASK

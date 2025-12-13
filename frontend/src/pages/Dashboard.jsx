@@ -1,7 +1,9 @@
-import React, { useMemo, useState } from 'react'
-import { ADD_BUTTON, HEADER, ICON_WRAPPER, LABEL_CLASS, STAT_CARD, STATS, STATS_GRID, VALUE_CLASS, WRAPPER } from '../assets/dummy'
-import { HomeIcon, Icon, Plus } from 'lucide-react'
+import React, { useCallback, useMemo, useState } from 'react'
+import { ADD_BUTTON, EMPTY_STATE, FILTER_LABELS, FILTER_OPTIONS, FILTER_WRAPPER, HEADER, ICON_WRAPPER, LABEL_CLASS, SELECT_CLASSES, STAT_CARD, STATS, STATS_GRID, TAB_ACTIVE, TAB_BASE, TAB_INACTIVE, TABS_WRAPPER, VALUE_CLASS, WRAPPER } from '../assets/dummy'
+import { CalendarIcon, Filter, HomeIcon, Icon, Plus } from 'lucide-react'
 import { useOutletContext } from 'react-router-dom';
+import TaskItem from '../components/TaskItem';
+import axios from 'axios';
 
 const API_BASE = "https://project-management-backend-1-qk79.onrender.com/api/tasks" ;
 
@@ -46,7 +48,18 @@ const Dashboard = () => {
   }) , [tasks , filter])
 
   // SAVING TASKS 
-
+  const handleTaskSave = useCallback(async(taskData) => {
+    try {
+      if (taskData.id) {
+        await axios.put(`${API_BASE}/${taskData.id}/gp` , taskData)
+        refreshTasks()
+        setShowModel(false)
+        setSelectedTask(null)
+      }
+    } catch(err) {
+      console.error("Error saving tasks: ",err) ;
+    }
+  } , [refreshTasks])
 
   return (
     <div className={WRAPPER}>
@@ -82,6 +95,60 @@ const Dashboard = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* CONTENTS */}
+      <div className='space-y-6'>
+        {/* FILTER */}
+        <div className={FILTER_WRAPPER}>
+          <div className='flex items-center gap-2 min-w-0'>
+            <Filter className='w-5 h-5 text-amber-500 shrink-0' />
+            <h2 className='text-base md:text-lg font-semibold text-gray-800 truncate'>
+              {FILTER_LABELS[filter]}
+            </h2>
+          </div>
+          
+          <select value={filter} onChange={(e) => setFilter(e.target.value)} className={SELECT_CLASSES}>
+            {FILTER_OPTIONS.map(opt => <option key={opt} value={opt}>
+              {opt.charAt(0).toUpperCase() + opt.slice(1)}
+            </option>)}
+          </select>
+
+          <div className={TABS_WRAPPER}>
+              {FILTER_OPTIONS.map(opt => (
+                <button key={opt} onClick={()=> setFilter(opt)} className={`${TAB_BASE} ${filter === opt? TAB_ACTIVE : TAB_INACTIVE}`}>
+                  {opt.charAt(0).toUpperCase() + opt.slice(1)}
+                </button>
+              ))}
+          </div>
+        </div>
+
+        {/* TASK LIST */}
+        <div className='space-y-4'>
+            {filterTasks.length === 0 ? (
+              <div className={EMPTY_STATE.wrapper}>
+                <div className={EMPTY_STATE.iconWrapper}>
+                  <CalendarIcon className='w-8 h-8 text-amber-500' />
+                  </div>
+                  <h3 className='text-lg font-semibold text-gray-800 mb-2'>No tasks found</h3>
+                  <p className='text-sm text-gray-500 mb-4'>{filter === 'all' ? "Create your first task to get started" : "No tasks match this filter"}</p>
+                  <button onClick={() => setShowModel(true)} className={EMPTY_STATE.btn}>
+                    Add New Task
+                  </button>
+              </div>
+            ) : (
+              filterTasks.map(task => (
+                <TaskItem  key={task._id || task.id} 
+                  task={task}
+                  onRefresh={refreshTasks}
+                  showCompleteCheckbox
+                  onEdit = {() => {setSelectedTask(task) ; setShowModel(true)}} />
+              )) 
+            )} 
+        </div>
+
+        {/* ADD TASK DESKTOP */}
+        
       </div>
     </div>
   )
