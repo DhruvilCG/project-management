@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Lock, Mail, User, UserPlus } from 'lucide-react'
 import React from 'react'
 import { useState } from 'react';
-import { FIELDS } from '../assets/dummy';
+import { FIELDS, Inputwrapper } from '../assets/dummy';
 
 const API_URL = 'https://project-management-backend-1-qk79.onrender.com';
 const INITIAL_FORM = {name: "" , email: "" , password: ""}
@@ -50,7 +50,7 @@ const SignUp = ({onSwitchMode}) => {
 
         <form onSubmit={handleSubmit} className='space-y-4'>
             {FIELDS.map(({name , type , placeholder , icon: Icon}) => (
-                <div key={name} className='flex items-center border border-amber-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-amber-500'>
+                <div key={name} className={Inputwrapper}>
                     <Icon className='text-amber-500 w-5 h-5 mr-2' />
                     <input type={type} placeholder={placeholder} value={formData[name]} onChange={(e) => setFormData({...formData , [name]:e.target.value})} className='w-full focus:outline-none text-sm text-gray-700 ' required />
                 </div>

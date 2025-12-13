@@ -74,12 +74,12 @@ export const BUTTON_CLASSES =
 
 // PROFILE CSS
 export const INPUT_WRAPPER =
-    "flex items-center border border-purple-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-purple-500 transition-all duration-200"
+    "flex items-center border border-amber-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-amber-500 focus-within:border-amber-500 transition-all duration-200"
 export const FULL_BUTTON =
-    "w-full bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
-export const SECTION_WRAPPER = "bg-white rounded-xl shadow-sm border border-purple-100 p-6"
+    "w-full bg-gradient-to-r bg-amber-600 text-white py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
+export const SECTION_WRAPPER = "bg-white rounded-xl shadow-sm border border-amber-100 p-6"
 export const BACK_BUTTON =
-    "flex items-center text-gray-600 hover:text-purple-600 mb-8 transition-colors duration-200"
+    "flex items-center text-gray-600 hover:text-amber-600 mb-8 transition-colors duration-200"
 export const DANGER_BTN =
     "w-full text-red-600 border border-red-200 py-2.5 rounded-lg hover:bg-red-50 transition-colors duration-200"
 
@@ -140,7 +140,7 @@ export const FIELDS = [
 ]
 
 export const Inputwrapper =
-    "flex items-center border border-purple-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-purple-500 transition-all duration-200"
+    "flex items-center border border-amber-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-amber-500 focus-within:border-amber-500 transition-all duration-200"
 export const BUTTONCLASSES =
     "w-full bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
 export const MESSAGE_SUCCESS = "bg-green-50 text-green-600 p-3 rounded-lg text-sm mb-4 border border-green-100"
