@@ -247,18 +247,18 @@ export const CT_CLASSES = {
 export const layoutClasses = {
     container: "p-6 min-h-screen overflow-hidden",
     headerWrapper: "flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4",
-    sortBox: "flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-purple-100 w-full md:w-auto",
-    select: "px-3 py-2 border border-purple-100 rounded-lg focus:ring-2 focus:ring-purple-500 md:hidden text-sm",
-    tabWrapper: "hidden md:flex space-x-1 bg-purple-50 p-1 rounded-lg ml-3",
+    sortBox: "flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-amber-100 w-full md:w-auto",
+    select: "px-3 py-2 border border-amber-100 rounded-lg focus:ring-2 focus:ring-amber-500 md:hidden text-sm",
+    tabWrapper: "hidden md:flex space-x-1 bg-amber-50 p-1 rounded-lg ml-3",
     tabButton: (active) =>
         `px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${active
-            ? "bg-white text-purple-700 shadow-sm border border-purple-100"
-            : "text-gray-600 hover:text-purple-700 hover:bg-purple-100/50"
+            ? "bg-white text-amber-700 shadow-sm border border-amber-100"
+            : "text-gray-600 hover:text-amber-700 hover:bg-amber-100/50"
         }`,
-    addBox: "hidden md:block p-5 border-2 border-dashed border-purple-200 rounded-xl hover:border-purple-400 transition-colors cursor-pointer mb-6 bg-purple-50/50 group",
-    emptyState: "p-8 bg-white rounded-xl shadow-sm border border-purple-100 text-center",
-    emptyIconBg: "w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4",
-    emptyBtn: "px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg text-sm font-medium transition-colors",
+    addBox: "hidden md:block p-5 border-2 border-dashed border-amber-200 rounded-xl hover:border-amber-400 transition-colors cursor-pointer mb-6 bg-amber-50/50 group",
+    emptyState: "p-8 bg-white rounded-xl shadow-sm border border-amber-100 text-center",
+    emptyIconBg: "w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4",
+    emptyBtn: "px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-700 rounded-lg text-sm font-medium transition-colors",
 };
 
 
