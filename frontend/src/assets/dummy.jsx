@@ -151,8 +151,8 @@ export const MESSAGE_ERROR = "bg-red-50 text-red-600 p-3 rounded-lg text-sm mb-4
 export const getPriorityColor = (priority) => {
     const colors = {
         low: "border-green-500 bg-green-50/50 text-green-700",
-        medium: "border-purple-500 bg-purple-50/50 text-purple-600",
-        high: "border-fuchsia-800 bg-fuchsia-50/50 text-fuchsia-800",
+        medium: "border-amber-500 bg-amber-50/50 text-amber-600",
+        high: "bg-amber-500",
     }
     return colors[priority?.toLowerCase()] || "border-gray-500 bg-gray-50/50 text-gray-700"
 }
@@ -160,7 +160,7 @@ export const getPriorityColor = (priority) => {
 export const getPriorityBadgeColor = (priority) => {
     const colors = {
         low: "bg-green-100 text-green-900",
-        medium: "bg-purple-100 text-purple-900",
+        medium: "bg-amber-100 text-amber-900",
         high: "bg-fuchsia-300 text-fuchsia-900",
     }
     return colors[priority?.toLowerCase()] || "bg-gray-100 text-gray-700"
@@ -265,7 +265,7 @@ export const layoutClasses = {
 // TASK ITEM
 // Menu options for task actions
 export const MENU_OPTIONS = [
-    { action: "edit", label: "Edit Task", icon: <Edit2 size={14} className="text-purple-600" /> },
+    { action: "edit", label: "Edit Task", icon: <Edit2 size={14} className="text-amber-600" /> },
     { action: "delete", label: "Delete Task", icon: <Trash2 size={14} className="text-red-600" /> },
 ]
 

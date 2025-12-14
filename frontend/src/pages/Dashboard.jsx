@@ -48,11 +48,9 @@ const Dashboard = () => {
         (t) =>
           t.completed === true ||
           t.completed === 1 ||
-          (
-            typeof t.completed === "string" &&
-            t.completed.toLowerCase() === "yes"
-          )
-      ).length
+          (typeof t.completed === "string" &&
+            t.completed.toLowerCase() === "yes")
+      ).length,
     }),
     [tasks]
   );
@@ -91,10 +89,12 @@ const Dashboard = () => {
       try {
         if (taskData.id) {
           await axios.put(`${API_BASE}/${taskData.id}/gp`, taskData);
-          refreshTasks();
-          setShowModal(false);
-          setSelectedTask(null);
         }
+
+        // ALWAYS refresh after save (create OR edit)
+        refreshTasks();
+        setShowModal(false);
+        setSelectedTask(null);
       } catch (err) {
         console.error("Error saving tasks: ", err);
       }
