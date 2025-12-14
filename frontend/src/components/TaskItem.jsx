@@ -150,7 +150,7 @@ const TaskItem = ({
               </span>
             </div>
 
-            {task.description && <p className={TI_CLASSES.description}></p>}
+            {task.description && <p className={TI_CLASSES.description}>{task.description}</p>}
           </div>
         </div>
         <div className={TI_CLASSES.rightContainer}>
