@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import { TI_CLASSES } from "../assets/dummy";
 
-const TaskItem = () => {
+const API_BASE =
+  "https://project-management-backend-1-qk79.onrender.com/api/tasks";
+
+const TaskItem = ({
+  task,
+  onRefresh,
+  onLogout,
+  showCompleteCheckbox = true,
+}) => {
   return (
-    <div>TaskItem</div>
-  )
-}
+    <>
+      <div className={`${TI_CLASSES}`}>
 
-export default TaskItem
+      </div>
+    </>
+  );
+};
+
+export default TaskItem;

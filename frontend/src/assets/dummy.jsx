@@ -48,11 +48,12 @@ const backendDummy = [
 
 // assets/formConstants.js
 export const baseControlClasses =
-    "w-full px-4 py-2.5 border border-purple-100 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm";
+    "w-full px-4 py-2.5 border border-amber-100 rounded-lg focus-within:ring-2 focus-within:ring-amber-500 focus-within:border-amber-500 focus:outline-none text-sm";
+    
 
 export const priorityStyles = {
     Low: "bg-green-100 text-green-700 border-green-200",
-    Medium: "bg-purple-100 text-purple-700 border-purple-200",
+    Medium: "bg-amber-100 text-amber-700 border-amber-200",
     High: "bg-fuchsia-100 text-fuchsia-700 border-fuchsia-200",
 };
 
@@ -270,19 +271,19 @@ export const MENU_OPTIONS = [
 
 // CSS class groups for TaskItem
 export const TI_CLASSES = {
-    wrapper: "group p-4 sm:p-5 rounded-xl shadow-sm bg-white border-l-4 hover:shadow-md transition-all duration-300 border border-purple-100",
+    wrapper: "group p-4 sm:p-5 rounded-xl shadow-sm bg-white border-l-4 hover:shadow-md transition-all duration-300 border border-amber-100",
     leftContainer: "flex items-start gap-2 sm:gap-3 flex-1 min-w-0",
-    completeBtn: "mt-0.5 sm:mt-1 p-1 sm:p-1.5 rounded-full hover:bg-purple-100 transition-colors duration-300",
+    completeBtn: "mt-0.5 sm:mt-1 p-1 sm:p-1.5 rounded-full hover:bg-amber-100 transition-colors duration-300",
     checkboxIconBase: "w-4 h-4 sm:w-5 sm:h-5",
     titleBase: "text-base sm:text-lg font-medium truncate",
     priorityBadge: "text-xs px-2 py-0.5 rounded-full shrink-0",
     description: "text-sm text-gray-500 mt-1 truncate",
-    subtasksContainer: "mt-3 sm:mt-4 space-y-2 sm:space-y-3 bg-purple-50/30 p-2 sm:p-3 rounded-lg border border-purple-100",
-    progressBarBg: "h-1.5 bg-purple-100 rounded-full overflow-hidden",
-    progressBarFg: "h-full bg-gradient-to-r from-fuchsia-500 to-purple-600 transition-all duration-300",
+    subtasksContainer: "mt-3 sm:mt-4 space-y-2 sm:space-y-3 bg-amber-50/30 p-2 sm:p-3 rounded-lg border border-amber-100",
+    progressBarBg: "h-1.5 bg-amber-100 rounded-full overflow-hidden",
+    progressBarFg: "h-full bg-gradient-to-r from-fuchsia-500 to-amber-600 transition-all duration-300",
     rightContainer: "flex flex-col items-end gap-2 sm:gap-3",
-    menuButton: "p-1 sm:p-1.5 hover:bg-purple-100 rounded-lg text-gray-500 hover:text-purple-700 transition-colors duration-200",
-    menuDropdown: "absolute right-0 mt-1 w-40 sm:w-48 bg-white border border-purple-100 rounded-xl shadow-lg z-10 overflow-hidden animate-fadeIn",
+    menuButton: "p-1 sm:p-1.5 hover:bg-amber-100 rounded-lg text-gray-500 hover:text-amber-700 transition-colors duration-200",
+    menuDropdown: "absolute right-0 mt-1 w-40 sm:w-48 bg-white border border-amber-100 rounded-xl shadow-lg z-10 overflow-hidden animate-fadeIn",
     dateRow: "flex items-center gap-1.5 text-xs font-medium whitespace-nowrap",
     createdRow: "flex items-center gap-1.5 text-xs text-gray-400 whitespace-nowrap",
 }
