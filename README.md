@@ -1,4 +1,20 @@
+
+
 # 📋 Project Management Application
+
+## 🎥 Project Video Walkthrough
+
+[![Watch the video](https://img.youtube.com/vi/pGvUvoeNctI/0.jpg)](https://www.youtube.com/watch?v=pGvUvoeNctI)
+
+[Watch on YouTube](https://www.youtube.com/watch?v=pGvUvoeNctI)
+
+---
+
+## 🚀 Deployed Application
+
+[https://projectmanagement-ivory-beta.vercel.app/](https://projectmanagement-ivory-beta.vercel.app/)
+
+---
 
 > **A modern, full-stack task management platform built with React, Node.js, and MongoDB for efficient task organization and productivity tracking**
 
@@ -11,73 +27,38 @@
 
 ---
 
-## 📋 Table of Contents
 
-- [Overview](#-overview)
-- [Quick Start](#-quick-start)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Installation](#-installation)
-- [Environment Setup](#-environment-setup)
-- [Database](#-database)
-- [API Endpoints](#-api-endpoints)
-- [Commands](#-commands)
-- [Usage](#-usage)
-- [Troubleshooting](#-troubleshooting)
+## ✨ Features
+
+- Create, edit, and delete tasks
+- Set priorities and due dates
+- Organize by status and priority
+- Filter and search tasks
+- Track productivity with stats
+- Secure authentication (JWT)
+- User profile management
+- Real-time updates, responsive UI
 
 ---
 
-## 📌 Overview
-
-Project Management Application is a comprehensive task management solution that helps users organize, track, and manage their tasks efficiently. Built with modern web technologies, it provides an intuitive interface for creating tasks, setting priorities, tracking completion status, and monitoring productivity metrics.
-
-### What It Does
-- Create, edit, and delete tasks with descriptions and priorities
-- Set due dates and track task deadlines
-- Organize tasks by status (pending, completed) and priority (low, medium, high)
-- Filter tasks by date (today, this week) and priority level
-- Track productivity with completion statistics and progress metrics
-- Secure user authentication with JWT tokens
-- User profile management with customizable settings
-- Real-time task updates with responsive UI
-
----
+git clone <repository-url>
 
 ## 🎬 Quick Start
 
-Get up and running in 5 minutes:
-
 ```bash
-# 1. Clone the repository
+# Clone & install
 git clone <repository-url>
 cd project-management
+cd frontend && npm install
+cd ../backend && npm install
 
-# 2. Install frontend dependencies
-cd frontend
-npm install
-
-# 3. Install backend dependencies
-cd ../backend
-npm install
-
-# 4. Set up environment variables
-# Create .env file in backend directory (see Environment Setup)
-
-# 5. Start MongoDB (if running locally)
-# Or configure MongoDB Atlas connection string
-
-# 6. Start backend server
-npm start
-# Server runs on http://localhost:4000
-
-# 7. Start frontend development server (in new terminal)
-cd frontend
-npm run dev
-# Frontend runs on http://localhost:5173
+# Start servers
+npm start   # in backend
+# In another terminal:
+cd ../frontend && npm run dev
 ```
 
-**Access the app**: [http://localhost:5173](http://localhost:5173)
+App runs at [http://localhost:5173](http://localhost:5173)
 
 ---
 
@@ -107,100 +88,36 @@ npm run dev
 
 ---
 
+
 ## 🛠️ Tech Stack
 
-### Frontend
-- **React 19.2.0** - Modern UI library
-- **Vite 7.2.4** - Next-generation frontend build tool
-- **React Router DOM 7.10.1** - Client-side routing
-- **Tailwind CSS 4.1.17** - Utility-first CSS framework
-- **Axios 1.13.2** - HTTP client for API requests
-- **Lucide React 0.560.0** - Beautiful icon library
-- **React Toastify 11.0.5** - Toast notifications
-- **Date-fns 4.1.0** - Date utility library
+**Frontend:** React, Vite, Tailwind CSS, Axios, Lucide, Toastify
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express 5.2.1** - Web application framework
-- **MongoDB 9.0.1** - NoSQL database
-- **Mongoose 9.0.1** - MongoDB object modeling
-- **JWT 9.0.3** - JSON Web Token authentication
-- **Bcryptjs 3.0.3** - Password hashing
-- **Validator 13.15.23** - Input validation
-- **CORS 2.8.5** - Cross-origin resource sharing
-- **Dotenv 17.2.3** - Environment variable management
-
-### Development Tools
-- **ESLint 9.39.1** - Code linting
-- **TypeScript Types** - Type definitions for React
-- **Nodemon 3.1.11** - Development server auto-reload (optional)
+**Backend:** Node.js, Express, MongoDB, Mongoose, JWT, Bcryptjs
 
 ---
 
-## 📁 Project Structure
 
+# Project Management App
+
+[![Watch the video](https://img.youtube.com/vi/pGvUvoeNctI/0.jpg)](https://www.youtube.com/watch?v=pGvUvoeNctI)
+
+[Live Demo](https://projectmanagement-ivory-beta.vercel.app/)
+
+Manage tasks, priorities, and productivity with a modern web app.
+
+## Quick Start
+```bash
+git clone <repository-url>
+cd project-management
+cd frontend && npm install
+cd ../backend && npm install
+npm start   # in backend
+# In another terminal:
+cd ../frontend && npm run dev
 ```
-project-management/
-├── frontend/                    # React frontend application
-│   ├── public/                  # Static assets
-│   │   └── vite.svg
-│   ├── src/
-│   │   ├── assets/              # Assets and constants
-│   │   │   ├── dummy.jsx        # Style constants and config
-│   │   │   └── react.svg
-│   │   ├── components/          # React components
-│   │   │   ├── Layout.jsx       # Main layout wrapper
-│   │   │   ├── Navbar.jsx       # Navigation bar
-│   │   │   ├── Sidebar.jsx      # Sidebar navigation
-│   │   │   ├── Login.jsx        # Login component
-│   │   │   ├── SignUp.jsx       # Registration component
-│   │   │   ├── Profile.jsx      # User profile component
-│   │   │   ├── TaskItem.jsx     # Task card component
-│   │   │   └── TaskModal.jsx    # Task create/edit modal
-│   │   ├── pages/               # Page components
-│   │   │   ├── Dashboard.jsx    # Main dashboard
-│   │   │   ├── PendingPage.jsx  # Pending tasks page
-│   │   │   └── CompletePage.jsx # Completed tasks page
-│   │   ├── App.jsx              # Main app component
-│   │   ├── main.jsx             # Application entry point
-│   │   └── index.css            # Global styles
-│   ├── eslint.config.js         # ESLint configuration
-│   ├── vite.config.js           # Vite configuration
-│   ├── package.json             # Frontend dependencies
-│   └── README.md                # Frontend README
-│
-├── backend/                     # Node.js backend API
-│   ├── config/
-│   │   └── db.js                # MongoDB connection
-│   ├── controllers/             # Route controllers
-│   │   ├── taskController.js    # Task CRUD operations
-│   │   └── userController.js    # User authentication & profile
-│   ├── middleware/
-│   │   └── auth.js              # JWT authentication middleware
-│   ├── models/                  # Mongoose models
-│   │   ├── taskModel.js         # Task schema
-│   │   └── userModel.js         # User schema
-│   ├── routes/                  # API routes
-│   │   ├── taskRoute.js         # Task endpoints
-│   │   └── userRoute.js         # User endpoints
-│   ├── server.js                # Express server entry point
-│   ├── package.json             # Backend dependencies
-│   └── .env                     # Environment variables (create this)
-│
-└── README.md                    # This file
-```
+Frontend: http://localhost:5173
 
----
-
-## 🚀 Installation
-
-### Prerequisites
-- **Node.js** >= 18.0.0
-- **npm** (comes with Node.js) or **yarn**
-- **MongoDB** (local installation or MongoDB Atlas account)
-- **Git**
-
-### Setup Steps
 
 #### 1. Clone the Repository
 ```bash
@@ -494,58 +411,13 @@ node server.js   # Alternative start command
 
 ---
 
+
 ## 📖 Usage
 
-### For New Users
-
-1. **Register** - Click "Sign Up" and create an account
-2. **Login** - Use your credentials to log in
-3. **Create Tasks** - Click "Add New Task" button
-4. **Organize Tasks** - Set priority levels and due dates
-5. **Track Progress** - View statistics on the dashboard
-6. **Filter Tasks** - Use filters to find specific tasks
-7. **Complete Tasks** - Mark tasks as done when finished
-
-### Task Management
-
-#### Creating a Task
-1. Click the "Add New Task" button
-2. Fill in the task details:
-   - **Title** (required)
-   - **Description** (optional)
-   - **Priority** (Low, Medium, High)
-   - **Due Date** (optional)
-3. Click "Save" to create the task
-
-#### Editing a Task
-1. Click on any task card
-2. Modify the fields you want to change
-3. Click "Save" to update
-
-#### Deleting a Task
-1. Click on a task card
-2. Use the delete option in the modal
-
-#### Filtering Tasks
-- Use the filter dropdown to view:
-  - All tasks
-  - Tasks due today
-  - Tasks due this week
-  - Tasks by priority (High, Medium, Low)
-
-#### Viewing Statistics
-- Dashboard shows:
-  - Total tasks
-  - Low/Medium/High priority counts
-  - Completed tasks count
-  - Productivity percentage
-
-### Profile Management
-
-1. Click on your profile icon in the navbar
-2. Update your name or email
-3. Change your password if needed
-4. View your account information
+1. Register and log in
+2. Add, edit, or delete tasks
+3. Set priorities and due dates
+4. Filter and track your progress
 
 ---
 
@@ -663,24 +535,7 @@ Contributions are welcome! To contribute:
 
 ---
 
-## 📝 License
 
-This project is licensed under the MIT License.
-
----
-
-## 🔗 Quick Links
-
-- 🌐 **React**: https://react.dev
-- ⚡ **Vite**: https://vitejs.dev
-- 📖 **Express**: https://expressjs.com
-- 🍃 **MongoDB**: https://www.mongodb.com
-- 📚 **Mongoose**: https://mongoosejs.com
-- 🎨 **Tailwind CSS**: https://tailwindcss.com
-- 🔐 **JWT**: https://jwt.io
-- 📦 **Axios**: https://axios-http.com
-
----
 
 ## 🎯 Roadmap
 
